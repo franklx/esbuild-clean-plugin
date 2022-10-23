@@ -1,4 +1,4 @@
-import del from 'del';
+import { deleteSync } from 'del';
 import type { BuildOptions, BuildResult } from 'esbuild';
 import path from 'node:path';
 
@@ -44,7 +44,7 @@ export class CleanPlugin {
         try {
             this.removeFiles(removePatterns);
         } catch (e: unknown) {
-            console.error(`esbuild-clean-plugin: ${e}`);
+            console.error(`esbuild-plugin-clean: ${e}`);
         }
     }
 
@@ -65,7 +65,7 @@ export class CleanPlugin {
             return;
         }
 
-        const deletedFiles = del.sync(patterns, {
+        const deletedFiles = deleteSync(patterns, {
             cwd: path.resolve(process.cwd(), outdir),
             dryRun: Boolean(this.pluginOptions.dry),
         });
@@ -86,7 +86,7 @@ export class CleanPlugin {
         fileNames.forEach((fileName) => {
             fileName = path.resolve(outdir, fileName);
 
-            console.log(`esbuild-clean-plugin: ${message} ${fileName}`);
+            console.log(`esbuild-plugin-clean: ${message} ${fileName}`);
         });
     }
 
@@ -95,7 +95,7 @@ export class CleanPlugin {
 
         if (!metafile) {
             console.warn(
-                'esbuild-clean-plugin: The esbuild "metafile" option was not set, please set it to true. Stopping.',
+                'esbuild-plugin-clean: The esbuild "metafile" option was not set, please set it to true. Stopping.',
             );
 
             return false;
@@ -103,7 +103,7 @@ export class CleanPlugin {
 
         if (!outdir) {
             console.warn(
-                'esbuild-clean-plugin: The esbuild "outdir" option was not set, please supply it. Stopping.',
+                'esbuild-plugin-clean: The esbuild "outdir" option was not set, please supply it. Stopping.',
             );
 
             return false;

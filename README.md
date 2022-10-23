@@ -1,12 +1,12 @@
-# esbuild-clean-plugin
-[![npm](https://img.shields.io/npm/v/esbuild-clean-plugin.svg)](https://www.npmjs.com/package/esbuild-clean-plugin)
-[![build](https://github.com/jwilsson/esbuild-clean-plugin/actions/workflows/build.yml/badge.svg)](https://github.com/jwilsson/esbuild-clean-plugin/actions/workflows/build.yml)
+# esbuild-plugin-clean
+[![npm](https://img.shields.io/npm/v/esbuild-plugin-clean.svg)](https://www.npmjs.com/package/esbuild-plugin-clean)
+[![build](https://github.com/jwilsson/esbuild-plugin-clean/actions/workflows/build.yml/badge.svg)](https://github.com/jwilsson/esbuild-plugin-clean/actions/workflows/build.yml)
 
 An [esbuild](https://esbuild.github.io/) plugin to clean your build folder.
 
 ## Installation
 ```sh
-npm install esbuild-clean-plugin
+npm install esbuild-plugin-clean
 ```
 
 ### Requirements
@@ -16,7 +16,7 @@ npm install esbuild-clean-plugin
 ## Usage
 ```js
 import { build } from 'esbuild';
-import { cleanPlugin } from 'esbuild-clean-plugin';
+import { cleanPlugin } from 'esbuild-plugin-clean';
 
 build({
   bundle: true,
